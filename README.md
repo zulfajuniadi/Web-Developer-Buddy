@@ -8,7 +8,7 @@ Reload browser on save. Compiles LESS automatically.
 1. Download and Install Node Webkit: (https://github.com/rogerwang/node-webkit)[From here].
 1. Right Click bin/Web Developer Buddy.nw -> Open with Node Webkit.
 1. Copy the generated script tag by clicking "Copy Script Tag"
-1. Paste it into your web project, just before the closing </body> tag.
+1. Paste it into your web project, just before the closing ``</body>`` tag.
 1. Modify the parameters inside the script tag as follows:
 
 ```html
