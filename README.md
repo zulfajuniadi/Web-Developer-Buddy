@@ -1,4 +1,4 @@
-Web-Developer-Buddy
+Web Developer Buddy
 ===================
 
 Reload browser on save. Compiles LESS automatically.
