@@ -21,8 +21,10 @@ Reload browser on save. Compiles LESS automatically.
 </script>
 ```
 
-__paths__ : The path to your web project
+__paths__ : The path to your web project.
+
 __extensions__ : The Extension you want to monitor. Upon changes to these files, the browser will reload.
+
 __less__ : Less files you want to automatically compile. The Object key is the source file, the value is the output file relative to the source file.
 
 ###Enjoy!
