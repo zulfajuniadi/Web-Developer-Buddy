@@ -5,7 +5,7 @@ Reload browser on save. Compiles LESS automatically.
 
 ##Usage: 
 
-1. Download and Install Node Webkit: (https://github.com/rogerwang/node-webkit)[From here].
+1. Download and Install Node Webkit: (https://github.com/rogerwang/node-webkit).
 1. Right Click bin/Web Developer Buddy.nw -> Open with Node Webkit.
 1. Copy the generated script tag by clicking "Copy Script Tag"
 1. Paste it into your web project, just before the closing ``</body>`` tag.
