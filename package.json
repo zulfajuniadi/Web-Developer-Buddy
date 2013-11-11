@@ -1,5 +1,8 @@
 {
     "main" : "index.html",
     "name" : "Web Developer Buddy",
-    "toolbar" : false
+    "window" : {
+        "title" : "App Developer Buddy"
+        , "toolbar" : false
+    }
 }

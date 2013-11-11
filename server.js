@@ -97,7 +97,7 @@
 
                     fileExtension = filename.split('.').reverse()[0];
                     if (watchedExtensions.indexOf(fileExtension) > -1 && !stat.isDirectory()) {
-                        filePath = basedir + '/' + filename;
+                        filePath = path.join(basedir, filename);
                         mtime = stat.mtime.getTime();
                         if (firstRun) {
                             watchedFilesDir.push({
@@ -207,8 +207,10 @@
                 firstRun = true;
             });
         });
-
-        var static_directory = new node_static.Server(process.cwd + '/public', {
+        
+        var staticDir = path.join(process.cwd(), '/public');
+        console.log('Serving webdevbuddy.js from: ' + staticDir);
+        var static_directory = new node_static.Server(staticDir, {
             headers: {
                 'Access-Control-Allow-Origin': '*'
             }

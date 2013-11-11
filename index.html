@@ -1,13 +1,76 @@
 <html>
 <head>
     <title></title>
+    <style>
+        p {
+            margin: 5px 0px;
+        }
+        body {
+           font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+           font-weight: 300;
+        }
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            font-family: monospace;
+        }
+        li {
+            margin-bottom:12px;
+            margin-left:20px;
+        }
+        code {
+            display: block;
+            margin: 10px;
+        }
+        #config.closed {
+            height: 48px;
+            overflow: hidden;
+        }
+        #config.closed .message, #config.closed code {
+            display: none;
+        }
+        #toggleConfig {
+            float: right;
+            width: 18px;
+            height: 18px;
+            background-repeat: no-repeat;
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAALJ2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjAgNjEuMTM0Nzc3LCAyMDEwLzAyLzEyLTE3OjMyOjAwICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIgogICAgeG1sbnM6eG1wUmlnaHRzPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvcmlnaHRzLyIKICAgIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIKICAgIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIgogICAgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIKICAgIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIKICAgIHhtbG5zOklwdGM0eG1wQ29yZT0iaHR0cDovL2lwdGMub3JnL3N0ZC9JcHRjNHhtcENvcmUvMS4wL3htbG5zLyIKICAgIHhtbG5zOnBsdXNfMV89Imh0dHA6Ly9ucy51c2VwbHVzLm9yZy9sZGYveG1wLzEuMC8iCiAgIHBob3Rvc2hvcDpIZWFkbGluZT0iVXNlciBpbnRlcmZhY2UgbWFrZSB1cCIKICAgeG1wUmlnaHRzOk1hcmtlZD0iVHJ1ZSIKICAgeG1wOk1ldGFkYXRhRGF0ZT0iMjAxMS0wMS0yNVQxMzo1NToxNCswMTowMCIKICAgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3QUQ1NEM1QTgyMjhFMDExOTg5Q0MwQTFBRDAyQjVDMiIKICAgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoyMjVCQzdENEUwMjdFMDExOTg5Q0MwQTFBRDAyQjVDMiIKICAgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjIyNUJDN0Q0RTAyN0UwMTE5ODlDQzBBMUFEMDJCNUMyIj4KICAgPHhtcFJpZ2h0czpVc2FnZVRlcm1zPgogICAgPHJkZjpBbHQ+CiAgICAgPHJkZjpsaSB4bWw6bGFuZz0ieC1kZWZhdWx0Ij5DcmVhdGl2ZSBDb21tb25zIEF0dHJpYnV0aW9uLU5vbkNvbW1lcmNpYWwgbGljZW5zZTwvcmRmOmxpPgogICAgPC9yZGY6QWx0PgogICA8L3htcFJpZ2h0czpVc2FnZVRlcm1zPgogICA8eG1wTU06SGlzdG9yeT4KICAgIDxyZGY6U2VxPgogICAgIDxyZGY6bGkKICAgICAgc3RFdnQ6YWN0aW9uPSJzYXZlZCIKICAgICAgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDoyMjVCQzdENEUwMjdFMDExOTg5Q0MwQTFBRDAyQjVDMiIKICAgICAgc3RFdnQ6d2hlbj0iMjAxMS0wMS0yNFQxODozOTowMSswMTowMCIKICAgICAgc3RFdnQ6Y2hhbmdlZD0iL21ldGFkYXRhIi8+CiAgICAgPHJkZjpsaQogICAgICBzdEV2dDphY3Rpb249InNhdmVkIgogICAgICBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjdBRDU0QzVBODIyOEUwMTE5ODlDQzBBMUFEMDJCNUMyIgogICAgICBzdEV2dDp3aGVuPSIyMDExLTAxLTI1VDEzOjU1OjE0KzAxOjAwIgogICAgICBzdEV2dDpjaGFuZ2VkPSIvbWV0YWRhdGEiLz4KICAgIDwvcmRmOlNlcT4KICAgPC94bXBNTTpIaXN0b3J5PgogICA8ZGM6Y3JlYXRvcj4KICAgIDxyZGY6U2VxPgogICAgIDxyZGY6bGk+R2VudGxlZmFjZSBjdXN0b20gdG9vbGJhciBpY29ucyBkZXNpZ248L3JkZjpsaT4KICAgIDwvcmRmOlNlcT4KICAgPC9kYzpjcmVhdG9yPgogICA8ZGM6ZGVzY3JpcHRpb24+CiAgICA8cmRmOkFsdD4KICAgICA8cmRmOmxpIHhtbDpsYW5nPSJ4LWRlZmF1bHQiPldpcmVmcmFtZSBtb25vIHRvb2xiYXIgaWNvbnM8L3JkZjpsaT4KICAgIDwvcmRmOkFsdD4KICAgPC9kYzpkZXNjcmlwdGlvbj4KICAgPGRjOnN1YmplY3Q+CiAgICA8cmRmOkJhZz4KICAgICA8cmRmOmxpPmN1c3RvbSBpY29uIGRlc2lnbjwvcmRmOmxpPgogICAgIDxyZGY6bGk+dG9vbGJhciBpY29uczwvcmRmOmxpPgogICAgIDxyZGY6bGk+Y3VzdG9tIGljb25zPC9yZGY6bGk+CiAgICAgPHJkZjpsaT5pbnRlcmZhY2UgZGVzaWduPC9yZGY6bGk+CiAgICAgPHJkZjpsaT51aSBkZXNpZ248L3JkZjpsaT4KICAgICA8cmRmOmxpPmd1aSBkZXNpZ248L3JkZjpsaT4KICAgICA8cmRmOmxpPnRhc2tiYXIgaWNvbnM8L3JkZjpsaT4KICAgIDwvcmRmOkJhZz4KICAgPC9kYzpzdWJqZWN0PgogICA8ZGM6cmlnaHRzPgogICAgPHJkZjpBbHQ+CiAgICAgPHJkZjpsaSB4bWw6bGFuZz0ieC1kZWZhdWx0Ij5DcmVhdGl2ZSBDb21tb25zIEF0dHJpYnV0aW9uLU5vbkNvbW1lcmNpYWwgbGljZW5zZTwvcmRmOmxpPgogICAgPC9yZGY6QWx0PgogICA8L2RjOnJpZ2h0cz4KICAgPElwdGM0eG1wQ29yZTpDcmVhdG9yQ29udGFjdEluZm8KICAgIElwdGM0eG1wQ29yZTpDaVVybFdvcms9Imh0dHA6Ly93d3cuZ2VudGxlZmFjZS5jb20iLz4KICAgPHBsdXNfMV86SW1hZ2VDcmVhdG9yPgogICAgPHJkZjpTZXE+CiAgICAgPHJkZjpsaQogICAgICBwbHVzXzFfOkltYWdlQ3JlYXRvck5hbWU9ImdlbnRsZWZhY2UuY29tIi8+CiAgICA8L3JkZjpTZXE+CiAgIDwvcGx1c18xXzpJbWFnZUNyZWF0b3I+CiAgIDxwbHVzXzFfOkNvcHlyaWdo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);
+            background-color: transparent;
+            background-size: cover;
+            border: 0px;
+        }
+        button:hover {
+            cursor: pointer;
+        }
+        #toggleConfig:hover {
+            background-color: #efefef;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <button id="copy">Copy Script Tag</button>
+    <div id="config" class="closed">
+        <p class="message">Place the following code inside your project: </p>
+        <code>
+            &nbsp;&nbsp;&lt;script src="http://localhost:8684/webdevbuddy.js"&gt;<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;{<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"paths" : ["\\xampp\\htdocs\\test"], <br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"extensions" : ["js","css","html","less"],<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"less" : [{"style.less" : "..\\..\\style.css"}]<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+            &nbsp;&nbsp;&lt;/script&gt;
+        </code>
+        <p>
+            <button id="copy">Copy Script Tag</button> or <button id="extension">Get Browser Extension</button>
+            <button id="toggleConfig"> </button>
+        </p>
+        <hr>
+    </div>
     <ul id="output"></ul>
     <script>
         console.log = function(item) {
-            var text = document.createTextNode(item.toString());
+            var text = document.createTextNode('[' + (new Date().toTimeString()) + ']: ' + item.toString());
             var li = document.createElement('li');
             li.appendChild(text);
             var target = document.getElementById('output');
@@ -29,6 +92,13 @@
             var clipboard = gui.Clipboard.get();
             clipboard.set(script, 'text');
             console.log('Script tag copied. Paste it anywhere in your code');
+        });
+        document.getElementById('toggleConfig').addEventListener('click', function(e){
+            var cfgPanel = document.getElementById('config');
+            if(cfgPanel.className.indexOf('closed') > -1) {
+                return cfgPanel.className = '';
+            }
+            return cfgPanel.className = 'closed';
         });
     </script>
     <script src="server.js"></script>
