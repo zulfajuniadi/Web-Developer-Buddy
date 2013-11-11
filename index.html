@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <button id="copy">Copy Script Tag</button>
+    <ul id="output"></ul>
+    <script>
+        console.log = function(item) {
+            var text = document.createTextNode(item.toString());
+            var li = document.createElement('li');
+            li.appendChild(text);
+            var target = document.getElementById('output');
+            if(target.childNodes.length > 0) {
+                target.insertBefore(li,target.childNodes[0]);
+            } else {
+                target.appendChild(li);
+            }
+        }
+        var script = '\<script src="http://localhost:8684/webdevbuddy.js">' + "\r\n";
+        script += '    {' + "\r\n";
+        script += '        "paths" : ["\\\\xampp\\\\htdocs\\\\test"],' + "\r\n";
+        script += '        "extensions" : ["js","css","html","less"],' + "\r\n";
+        script += '        "less" : [{"style.less" : "..\\\\..\\\\style.css"}]' + "\r\n";
+        script += '    }' + "\r\n";
+        script += '\<\/script>' + "\r\n";
+        document.getElementById('copy').addEventListener('click', function(e){
+            var gui = require('nw.gui');
+            var clipboard = gui.Clipboard.get();
+            clipboard.set(script, 'text');
+            console.log('Script tag copied. Paste it anywhere in your code');
+        });
+    </script>
+    <script src="server.js"></script>
+</body>
+</html>
