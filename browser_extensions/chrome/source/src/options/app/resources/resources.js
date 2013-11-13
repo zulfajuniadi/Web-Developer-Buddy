@@ -50,7 +50,7 @@ define(['sarah', 'jquery'], function(app, $) {
                 lessOutVal = lessOObj[0].value;
             }
             var setChecked = (checked.indexOf(less) > -1) ? 'checked="checked"' : '';
-            lessListLi += '<li><label for="' + less + '"><input ' + setChecked + ' id="' + less + '" type="checkbox" name="lessIn[]" value="' + less + '"> ' + less + ' &raquo; <input class="lessOutInput" id="lesso_' + less + '" name="lessOut[]" value="' + lessOutVal + '" placeholder="' + cssf + '"/></label></li>';
+            lessListLi += '<li><label for="' + less + '"><input ' + setChecked + ' id="' + less + '" type="checkbox" name="lessIn[]" value="' + less + '"> ' + less + ' &raquo;</label> <input class="lessOutInput" id="lesso_' + less + '" name="lessOut[]" value="' + lessOutVal + '" placeholder="' + cssf + '"/></li>';
         });
         $('#fileList').html(fileListLi);
         $('#lessList').html(lessListLi);
