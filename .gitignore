@@ -1,3 +1,5 @@
+bin/*
+staging/*
 *.DS_Store
 *.zip
 .foreverignore
