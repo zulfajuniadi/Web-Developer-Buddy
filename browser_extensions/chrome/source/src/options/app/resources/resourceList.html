@@ -1,0 +1,19 @@
+<div class="left">
+    <h1>Resource List</h1>
+    <ul id="resourceList">
+        {{#each resources}}
+            <li>
+                <p>
+                    &raquo; <a href="#/resource/{{_id}}">{{name}}</a>
+                </p>
+            </li>
+        {{/each}}
+    </ul>
+    <br /><a class="btn" href="#/resources/new">New Resource</a>
+</div><div class="right">
+    {{#if active}}
+        <div id="itemView">{{> resourceForm}}</div>
+    {{else}}
+        <h1>Select a resource on the left.</h1>
+    {{/if}}
+</div>

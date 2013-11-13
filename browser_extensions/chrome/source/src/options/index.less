@@ -1,0 +1,143 @@
+
+* {
+    box-sizing: border-box;
+    color: #222;
+}
+
+body {
+    padding: 10px;
+    font-family: Helvetica, Ubuntu, Arial, sans-serif;
+    font-size: 100%;
+    color: #222;
+}
+
+#fileList {
+    li {
+        width:100px;
+        overflow: hidden;
+        display:inline-block;
+        vertical-align: top;
+    }
+}
+#lessList {
+    li {
+        white-space: pre;
+        width: 32%;
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 1%;
+        .lessOutInput {
+            display: block;
+            margin-left: 25px;
+            width: calc(100% - 30px);
+        }
+    }
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        white-space: nowrap;
+    }
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    cursor: pointer;
+}
+input {
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    &.full {
+        display:block;
+        width:100%;
+    }
+}
+input[type=search] {
+    width: 250px;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    color: #222;
+    margin-left: 5px;
+}
+
+.right {
+    width: calc(~'100%' - 300px);
+    display:inline-block;
+    vertical-align:top;
+    padding: 20px;
+}
+.left {
+    width: 300px;
+    display:inline-block;
+    vertical-align:top;
+    border: 1px solid #ccc;
+    padding: 20px;
+    height: 100%;
+    box-shadow: 15px 0px 15px -10px #ccc;
+    border-left: 0px solid;
+    border-bottom: 0px solid;
+}
+.act:hover {
+    cursor:pointer;
+    text-decoration:underline;
+}
+
+.btn {
+    margin-top:24px;
+    margin-bottom: 32px;
+    background-color: white;
+    border: 1px solid #ccc;
+    display:inline-block;
+    padding: 6px 12px;
+    font-size: 18px;
+}
+
+.btn:hover {
+    background-color: #ccc;
+    border:1px solid #888;
+    cursor:pointer;
+}
+
+#resourceList a {
+    font-size: 20px;
+}
+
+#lessDiv,  #filesDiv,  #submitDiv,  #webbuddyoffline {
+    display: none;
+}
+
+#webbuddyoffline {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-index: 1000;
+    background-color: rgba(0,0,0,0.9);
+    color: #ccc;
+    font-size: 1.6em;
+    padding-top: 300px;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    -webkit-transition-duration: 1s;
+    &.show {
+        display: block;
+        opacity: 1;
+    }
+    a {
+        color : white;
+    }
+}

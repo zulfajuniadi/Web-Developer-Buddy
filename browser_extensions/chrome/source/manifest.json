@@ -1,0 +1,29 @@
+{
+    "background": {
+        "scripts": [
+            "js/background.js"
+        ]
+    },
+    "browser_action": {
+        "default_icon": "icons/icon19_disabled.png",
+        "default_title": "Configure Web Developer Buddy"
+    },
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "description": "This extension reloads a page on modification and compiles LESS files. Visit our site for more info. [Requires additional software].",
+    "homepage_url": "http://webdeveloperbuddy.blogspot.com/",
+    "icons": {
+        "128": "icons/icon128.png",
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png"
+    },
+    "manifest_version": 2,
+    "name": "Web Developer Buddy",
+    "short_name": "webdevbuddy",
+    "options_page": "src/options/options.html",
+    "permissions": [
+        "tabs",
+        "https://*/*",
+        "http://*/*"
+    ],
+    "version": "0.0.1"
+}

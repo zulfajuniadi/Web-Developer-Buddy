@@ -1,0 +1,73 @@
+{{#isnt state 'view'}}
+<h1> {{titleCase state}} Resource : {{url}}</h1>
+    <form id="resourceForm" method="post">
+    <input type="hidden" name="hosts" value="{{url}}">
+    {{#is state 'edit'}}
+        <input type="hidden" name="_id" value="{{active._id}}">
+    {{/is}}
+{{else}}
+    <h1> {{titleCase state}} Resource : {{active.hosts}}</h1>
+    <div id="resourceForm">
+{{/isnt}}
+    <div>
+        <p>Directory Settings:</p>
+        <ul>
+            <li>
+                <label for="name">
+                    {{#is state 'view'}}
+                        <input class="checkValid full" name="name" id="name" placeholder="Project Name" value="{{active.name}}" disabled readonly/>
+                    {{else}}
+                        <input class="checkValid full" name="name" id="name" placeholder="Project Name" value="{{active.name}}" required/>
+                    {{/is}}
+                </label>
+            </li>
+            <li>
+                <label for="path">
+                    {{#is state 'view'}}
+                        <input class="checkValid full" name="path" id="path" placeholder="Webroot Directory" value="{{active.path}}" disabled readonly/>
+                    {{else}}
+                        <input class="checkValid full" name="path" id="path" placeholder="Webroot Directory" value="{{active.path}}" required/>
+                    {{/is}}
+                </label>
+            </li>
+        </ul>
+    </div>
+    <div id="filesDiv" style="display:block">
+        <p><b>File Types : </b>
+            {{#isnt state 'view'}}
+                <input type="search" id="searchExt" placeholder="Search File Extensions"></p>
+            {{/isnt}}
+        <ul class="half" id="fileList">
+            {{#if active}}
+                {{#each active.filetypes}}
+                    <li>{{this}}</li>
+                {{/each}}
+            {{/if}}
+        </ul>
+    </div>
+    <div id="lessDiv" style="display:block">
+        <p><b>Less Files : </b>
+            {{#isnt state 'view'}}
+                <input type="search" id="searchLess" placeholder="Search LESS Files"></p>
+            {{/isnt}}
+        <ul id="lessList">
+            {{#if active}}
+                {{#each active.lessIn}}
+                    <li>{{this}}</li>
+                {{/each}}
+            {{/if}}
+        </ul>
+    </div>
+{{#isnt state 'view'}}
+    <div id="submitDiv">
+        <input class="btn" id="submit" class="" type="submit" value="Save">
+    </div>
+    {{#is state 'new'}}
+        <a class="btn" href="#/">Back to list</a>
+    {{/is}}
+    </form>
+{{else}}
+    <a class="btn" href="#/resource/edit/{{active._id}}"> Edit </a>
+    <button class="btn" id="delete" {{bind}}> Delete </button>
+</div>
+{{/isnt}}

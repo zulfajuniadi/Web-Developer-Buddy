@@ -1,0 +1,3 @@
+[submodule "browser_extensions/chrome/source/src/options/SarahJS"]
+	path = browser_extensions/chrome/source/src/options/SarahJS
+	url = https://github.com/zulfajuniadi/SarahJS
