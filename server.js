@@ -15,7 +15,6 @@
     var walk = require('fs-walk');
     var fs = require('fs');
     var _ = require('lodash')._;
-    var portastic = require('portastic');
     var port = 8684;
     var qs = require('querystring');
     var watchedExtensions = [];
@@ -153,7 +152,7 @@
             if (JSON.stringify(thisRun) !== JSON.stringify(lastRun) || newFile.filePath !== undefined) {
                 var diff = _.difference(lastRun, thisRun) || [newFile];
                 if (diff.length > 0) {
-                    if (filename) {
+                    if (typeof filename !== 'undefined') {
                         var fileExtension = path.extname(filename).replace('.', '');
                         if (fileExtension === 'less') {
                             compileLess(diff[0]);
