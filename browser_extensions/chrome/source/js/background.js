@@ -10,6 +10,7 @@ if (resources === null) {
 } else {
     resources = JSON.parse(resources);
 }
+console.log(activeUrls)
 
 function parseUrl(url) {
     var parser = document.createElement('a');
@@ -33,6 +34,7 @@ function injectScript(tab, configObj) {
 function deactivateWebDeveloperBuddy(tab) {
     var parsedUrl = parseUrl(tab.url);
     var tabUrl = parsedUrl.protocol + '//' + parsedUrl.host;
+
     if (activeUrls.indexOf(tabUrl) > -1) {
         activeUrls = activeUrls.filter(function(url) {
             return url !== tabUrl;

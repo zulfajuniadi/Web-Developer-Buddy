@@ -21,8 +21,9 @@
     "short_name": "webdevbuddy",
     "options_page": "src/options/options.html",
     "permissions": [
+    	"tabs",
         "https://*/*",
         "http://*/*"
     ],
-    "version": "0.0.3"
+    "version": "0.0.4"
 }
