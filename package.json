@@ -1,9 +1,9 @@
 {
-	"version" : "0.0.2",
+	"version" : "0.0.4",
     "main" : "index.html",
     "name" : "Web Developer Buddy",
     "window" : {
-        "title" : "App Developer Buddy"
+        "title" : "Web Developer Buddy"
         , "toolbar" : false
     }
 }
