@@ -80,10 +80,12 @@ function activateWebDeveloperBuddy(tab) {
 function handleBrowserActionClick(tab) {
     var parsedUrl = parseUrl(tab.url);
     var tabUrl = parsedUrl.protocol + '//' + parsedUrl.host;
-    if (activeUrls.indexOf(tabUrl) > -1) {
-        return deactivateWebDeveloperBuddy(tab);
+    if(tabUrl.indexOf('http') > -1) {
+	    if (activeUrls.indexOf(tabUrl) > -1) {
+	        return deactivateWebDeveloperBuddy(tab);
+	    }
+	    return activateWebDeveloperBuddy(tab);
     }
-    return activateWebDeveloperBuddy(tab);
 }
 
 function handleBrowserLoad(tab) {

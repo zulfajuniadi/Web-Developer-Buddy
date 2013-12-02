@@ -20,6 +20,11 @@
         less: []
     };
     if (values.lessIn !== undefined) {
+    	/* check if values are array, if not then make both lessIn and lessOut an array */
+    	if(typeof values.lessIn.pop === 'undefined' && typeof values.lessIn.push === 'undefined') {
+			values.lessIn = [values.lessIn];
+			values.lessOut = [values.lessOut];
+    	}
         values.lessIn.forEach(function(input, idx) {
             if (values.lessOut !== undefined) {
                 if (values.lessOut[idx] !== undefined) {

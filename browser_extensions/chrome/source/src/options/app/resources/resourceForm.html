@@ -32,7 +32,7 @@
             </li>
         </ul>
     </div>
-    <div id="filesDiv" style="display:block">
+    <div id="filesDiv" style="display:none">
         <p><b>File Types : </b>
             {{#isnt state 'view'}}
                 <input type="search" id="searchExt" placeholder="Search File Extensions"></p>
@@ -45,7 +45,7 @@
             {{/if}}
         </ul>
     </div>
-    <div id="lessDiv" style="display:block">
+    <div id="lessDiv" style="display:none">
         <p><b>Less Files : </b>
             {{#isnt state 'view'}}
                 <input type="search" id="searchLess" placeholder="Search LESS Files"></p>
